@@ -1,0 +1,7 @@
+path:
+  src_loc: ""
+  dest_loc: ""
+
+properties:
+  site: "COR"
+  instrum: "AWS"
