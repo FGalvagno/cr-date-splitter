@@ -3,11 +3,19 @@ from splitter import Splitter
 import os
 import time
 
+f = open("config/AWS.json")
+cfg = json.load(f)
+
 def main():
     if not os.path.exists('export'):
         os.makedirs('export')
 
-    s1 = Splitter("./","export", "COR", "AWS", "COR_AWS.dat")
+    s1 = Splitter(
+        cfg["path"]["src"],
+        cfg["path"]["dest"], 
+        cfg["site"],
+        cfg["instrum"], 
+        cfg["file_name"])
 
 
     while(True):

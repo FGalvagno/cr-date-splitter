@@ -45,6 +45,6 @@ class Splitter:
                 for line in filetwo:
                     if line not in fileone:
                         outFile.write(line)
-
+            os.remove("temp")
         else:
             self.df.to_csv(file_path, index=False, mode = 'w', header=False)
