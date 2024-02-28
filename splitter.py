@@ -7,13 +7,14 @@ class Splitter:
         self._cached_stamp = 0
         self.src_loc = src_loc
         self.dest_loc = dest_loc
+        self.full_path = src_loc + '/' + filename
         self.df = pd.DataFrame()
         self.site = site
         self.instrum = instrum
         self.filename = filename
 
     def has_changed(self):
-        stamp = os.stat(self.src_loc+'/'+self.filename).st_mtime
+        stamp = os.stat(self.full_path).st_mtime
         if stamp != self._cached_stamp:
             self._cached_stamp = stamp
             return True
@@ -22,11 +23,15 @@ class Splitter:
     def load_dat(self):
         # read file
         # print("Reading file " + self.src_loc +'/'+ self.filename )
-        df = pd.read_csv(self.src_loc + '/' +self.filename, skiprows=[0, 2, 3])
+        df = pd.read_csv(self.full_path, skiprows=[0, 2, 3])
         # print(df)
         df['TIMESTAMP'] = pd.to_datetime(df['TIMESTAMP'])
         i = date.today()
         self.df = df[(df['TIMESTAMP'].dt.date >= i) & (df['TIMESTAMP'].dt.date < i+timedelta(days=1))]
+        
+        #save original header
+        with open(self.full_path) as input_file:
+            self.head = [next(input_file) for _ in range(4)]
 
 
 
@@ -40,7 +45,7 @@ class Splitter:
         if(os.path.isfile(file_path)):
             self.df.to_csv("temp", index=False, mode = 'w', header=False)
             with open(file_path, 'r') as t1, open('temp', 'r') as t2:
-                fileone = t1.readlines()
+                fileone = t1.readlines()[4:]
                 filetwo = t2.readlines()
             with open(file_path, 'a') as outFile:
                 for line in filetwo:
@@ -48,6 +53,10 @@ class Splitter:
                         outFile.write(line)
                         print(line)
             os.remove("temp")
+            
         else:
+            with open(file_path, 'w') as f:
+                f.writelines(self.hd)
+                f.close()
             print(self.df)
-            self.df.to_csv(file_path, index=False, mode = 'w', header=False)
+            self.df.to_csv(file_path, index=False, mode = 'a', header=False)
