@@ -1,6 +1,6 @@
 path: 
       src: "./"
-      dest: "export"
+      dest: "./export"
 site: "COR"
 instrum: "AWS"
 file_name: "COR_AWS.dat"
