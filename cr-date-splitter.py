@@ -35,7 +35,7 @@ def main():
                 print("Processing changes: ", datetime.now())
                 splitter.load_dat()
                 splitter.split_date()    
-    time.sleep(30)
+        time.sleep(30)
         
 
 
