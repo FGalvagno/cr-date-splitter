@@ -30,11 +30,11 @@ def main():
         )
 
     while(True):
-        for i in len(s):
-            if(s(i).has_changed()):
+        for splitter in s:
+            if(splitter.has_changed()):
                 print("Processing changes: ", datetime.now())
-                s(i).load_dat()
-                s(i).split_date()    
+                splitter.load_dat()
+                splitter.split_date()    
     time.sleep(30)
         
 
