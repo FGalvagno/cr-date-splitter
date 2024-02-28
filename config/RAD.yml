@@ -1,0 +1,6 @@
+path: 
+      src: "./"
+      dest: "./export"
+site: "COR"
+instrum: "RAD"
+file_name: "COR_AWS.dat"
