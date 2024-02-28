@@ -1,6 +1,22 @@
 path: 
-      src: "./"
-      dest: "./export"
-site: "COR"
+      src: "./"         #path of data src e.g: "C:/COR_PASIVOS/COR_AWS-DATOS"
+      dest: "./export"  #dest path of exported files
+
+site: "COR" 
+#-----SITE INFO-----#
+#locations:
+#"PIL" or "COR" 
+#"TUC"
+#"VM or "CITEDEF"
+#"SMN"
+#"NQN"
+#"BRC"
+#"TRW"
+#"CRD"
+#"RGL"
+
+#-----INSTRUM INFO-----#
+#instrum: "RAD" or "AWS"
 instrum: "RAD"
-file_name: "COR_AWS.dat"
+
+file_name: "COR_AWS.dat" #name of src file e.g: "COR_AWS.dat"
