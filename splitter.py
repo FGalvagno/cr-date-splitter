@@ -13,7 +13,7 @@ class Splitter:
         self.filename = filename
 
     def has_changed(self):
-        stamp = os.stat(self.filename).st_mtime
+        stamp = os.stat(self.src_loc+'/'+self.filename).st_mtime
         if stamp != self._cached_stamp:
             self._cached_stamp = stamp
             return True
@@ -21,9 +21,10 @@ class Splitter:
     
     def load_dat(self):
         # read file
-        df = pd.read_csv(self.src_loc + self.filename, skiprows=[0, 2, 3])
+        # print("Reading file " + self.src_loc +'/'+ self.filename )
+        df = pd.read_csv(self.src_loc + '/' +self.filename, skiprows=[0, 2, 3])
         print(df)
-        df['TIMESTAMP'] = pd.to_datetime(df['TIMESTAMP'], format='mixed')
+        df['TIMESTAMP'] = pd.to_datetime(df['TIMESTAMP'])
         i = date.today()
         self.df = df[(df['TIMESTAMP'].dt.date >= i) & (df['TIMESTAMP'].dt.date < i+timedelta(days=1))]
 

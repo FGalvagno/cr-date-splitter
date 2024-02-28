@@ -1,10 +1,12 @@
-import json
-from splitter import Splitter
+import yaml
 import os
 import time
+from datetime import date
 
-f = open("config/AWS.json")
-cfg = json.load(f)
+from splitter import Splitter
+
+f = open("config/AWS.yaml", 'r')
+cfg = yaml.safe_load(f)
 
 def main():
     if not os.path.exists('export'):
@@ -20,12 +22,10 @@ def main():
 
     while(True):
         if(s1.has_changed()):
-            print("Processing...")
+            print("Processing changes:", date.today())
             s1.load_dat()
             s1.split_date()
-        else:
-            print("File has not changed")
-        time.sleep(10)
+        time.sleep(30)
         
 
 
