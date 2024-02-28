@@ -23,7 +23,7 @@ class Splitter:
         # read file
         # print("Reading file " + self.src_loc +'/'+ self.filename )
         df = pd.read_csv(self.src_loc + '/' +self.filename, skiprows=[0, 2, 3])
-        print(df)
+        # print(df)
         df['TIMESTAMP'] = pd.to_datetime(df['TIMESTAMP'])
         i = date.today()
         self.df = df[(df['TIMESTAMP'].dt.date >= i) & (df['TIMESTAMP'].dt.date < i+timedelta(days=1))]
@@ -46,6 +46,8 @@ class Splitter:
                 for line in filetwo:
                     if line not in fileone:
                         outFile.write(line)
+                        print(line)
             os.remove("temp")
         else:
+            print(self.df)
             self.df.to_csv(file_path, index=False, mode = 'w', header=False)
