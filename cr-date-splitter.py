@@ -7,16 +7,12 @@ import yaml
 
 from splitter import Splitter
 
-
-
-
 def main():
     if not os.path.exists('export'):
         os.makedirs('export')
+    
     s = []
     config = []
-    #f = open("config/AWS.yml", 'r')
-    #cfg = yaml.safe_load(f)
 
     cfg_files = glob.glob('./config/*.yml')
     for file in cfg_files:
@@ -40,8 +36,6 @@ def main():
                 splitter.load_dat()
                 splitter.split_date()    
         time.sleep(30)
-        
-
 
 if __name__ == "__main__":
     main()
