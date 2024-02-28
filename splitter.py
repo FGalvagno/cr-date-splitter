@@ -12,7 +12,7 @@ class Splitter:
         self.site = site
         self.instrum = instrum
         self.filename = filename
-        self.hd = ''
+
 
     def has_changed(self):
         stamp = os.stat(self.full_path).st_mtime
@@ -32,7 +32,7 @@ class Splitter:
         
         #save original header
         with open(self.full_path) as input_file:
-            self.head = [next(input_file) for _ in range(4)]
+            self.hd = [next(input_file) for _ in range(4)]
 
 
 
@@ -59,5 +59,6 @@ class Splitter:
             with open(file_path, 'w') as f:
                 f.writelines(self.hd)
                 f.close()
+                print(self.hd)
             print(self.df)
             self.df.to_csv(file_path, index=False, mode = 'a', header=False)
