@@ -12,6 +12,7 @@ class Splitter:
         self.site = site
         self.instrum = instrum
         self.filename = filename
+        self.hd = ''
 
     def has_changed(self):
         stamp = os.stat(self.full_path).st_mtime
