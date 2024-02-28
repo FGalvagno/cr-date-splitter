@@ -14,12 +14,16 @@ def main():
     if not os.path.exists('export'):
         os.makedirs('export')
     s = []
+    config = []
     #f = open("config/AWS.yml", 'r')
     #cfg = yaml.safe_load(f)
 
     cfg_files = glob.glob('./config/*.yml')
+    for file in cfg_files:
+        f = open(file,'r')
+        config.append(yaml.safe_load(f))
 
-    for cfg in cfg_files:
+    for cfg in config:
         s.append(
             Splitter(
             cfg["path"]["src"],
