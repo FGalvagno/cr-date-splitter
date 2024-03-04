@@ -15,6 +15,7 @@ image = PIL.Image.open("./img/icon.png")
 def on_clicked(icon, item):
     if str(item) == "Exit":
         icon.stop()
+        os._exit(1)
 
 icon = pystray.Icon("CR Splitter", image, menu=pystray.Menu(
     pystray.MenuItem("Exit", on_clicked)
@@ -23,7 +24,7 @@ icon = pystray.Icon("CR Splitter", image, menu=pystray.Menu(
 
 
 def main():
-    icon.run()
+    icon.run_detached()
     
     if not os.path.exists('export'):
         os.makedirs('export')
