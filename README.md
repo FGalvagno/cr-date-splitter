@@ -8,7 +8,7 @@ The data files are splitted on the go, so a previous dates backup must be done b
 The program supports multiple files (or tables, defined by "instrument name" and "file name"). Since the program is made to be running on backround, a tray icon is showed.
 
 ## Installation
-Clone the repository: 
+Check the [releases page](https://github.com/FGalvagno/cr-date-splitter/releases) or clone the repository: 
 ```
 git clone https://github.com/FGalvagno/cr-date-splitter.git
 ```
@@ -18,7 +18,11 @@ Install dependencies:
 pip install -r requirements.txt
 ```
 
-__Warning:__ if the script is running on Windows 7 or below, you may have to install dependencies manually: _numpy, pandas, pillow, pystray, python-dateutil, python-xlib, pytz, PyYAML, six, tzdata._
+__Warning:__ if the script is running on Windows 7 or below, you may have to install dependencies manually: _numpy, pandas, pillow, pystray, python-dateutil, python-xlib, pytz, PyYAML, six, tzdata._ 
+
+You may also need to install KB3063858 update:
+- [Windows 7 32-bit](https://www.microsoft.com/en-us/download/details.aspx?id=47409)
+- [Windows 7 64-bit](https://www.microsoft.com/en-us/download/details.aspx?id=47442)
 
 ## Usage
 Create YAML configuration files in _/config_ folder:
