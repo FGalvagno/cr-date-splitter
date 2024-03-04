@@ -3,11 +3,28 @@ import time
 from datetime import datetime
 import glob
 
+import pystray
+import PIL.Image
 import yaml
 
 from splitter import Splitter
 
+image = PIL.Image.open("./img/icon.png")
+
+
+def on_clicked(icon, item):
+    if str(item) == "Exit":
+        icon.stop()
+
+icon = pystray.Icon("CR Splitter", image, menu=pystray.Menu(
+    pystray.MenuItem("Exit", on_clicked)
+
+))
+
+
 def main():
+    icon.run()
+    
     if not os.path.exists('export'):
         os.makedirs('export')
     
