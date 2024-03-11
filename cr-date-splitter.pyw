@@ -9,9 +9,10 @@ import yaml
 
 from splitter import Splitter
 
+## image for tray icon 
 image = PIL.Image.open("./img/icon.png")
 
-
+## define tray function
 def on_clicked(icon, item):
     if str(item) == "Exit":
         icon.stop()
@@ -22,16 +23,18 @@ icon = pystray.Icon("CR Splitter", image, menu=pystray.Menu(
 
 ))
 
-
+## main process
 def main():
     icon.run_detached()
     
+    ## check for basic export folder
     if not os.path.exists('export'):
         os.makedirs('export')
     
     s = []
     config = []
 
+    ## create an array of splitters, based on .yml config files.
     cfg_files = glob.glob('./config/*.yml')
     for file in cfg_files:
         f = open(file,'r')
@@ -47,6 +50,7 @@ def main():
             cfg["file_name"])
         )
 
+    ## check for changes in files with polling.
     while(True):
         for splitter in s:
             if(splitter.has_changed()):
