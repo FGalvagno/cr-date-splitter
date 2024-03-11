@@ -1,4 +1,4 @@
-# Campbell Date Splitter
+# Campbell date splitter
 
 ## Description
 A python program to daily split the data from Campbell CR series dataloggers. 
