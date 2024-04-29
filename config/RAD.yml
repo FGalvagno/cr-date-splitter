@@ -5,18 +5,18 @@ path:
 site: "COR" 
 #-----SITE INFO-----#
 #locations:
-#"PIL" or "COR" 
-#"TUC"
-#"VM or "CITEDEF"
+#"COR"
+#"TUC""
+#"VM"
 #"SMN"
 #"NQN"
-#"BRC"
+#"BAR"
 #"TRW"
-#"CRD"
-#"RGL"
+#"COM"
+#"OAPA"
 
 #-----INSTRUM INFO-----#
-#instrum: "RAD" or "AWS"
-instrum: "RAD"
+#instrum: "PIRA-UVA-UVB" or "AWS"
+instrum: "PIRA-UVA-UVB"
 
 file_name: "COR_AWS.dat" #name of src file e.g: "COR_AWS.dat"
