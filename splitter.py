@@ -115,7 +115,7 @@ class Splitter:
         """
 
         i = date.today()
-        file_path = self.dest_loc + "/" +self.instrum + f"/{i.strftime('/%Y/%m/'+ self.site + '_' +  self.instrum + '_' +'-%Y-%m-%d')}.csv" 
+        file_path = self.dest_loc + "/" +self.instrum + f"/{i.strftime('/%Y/%m/'+ self.site + '_' +  self.instrum + '_' +'%Y-%m-%d')}.csv" 
        
         if not os.path.exists(self.dest_loc + '/' + self.instrum + f"/{i.strftime('/%Y/%m')}"):
             os.makedirs(self.dest_loc + '/' + self.instrum + f"/{i.strftime('/%Y/%m')}")
