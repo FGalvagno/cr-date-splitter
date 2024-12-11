@@ -9,6 +9,15 @@ import yaml
 
 from splitter import Splitter
 
+debug = True
+
+if not 'PROMPT' in os.environ and debug:
+    import sys
+    nullfile = open(os.devnull, 'w')
+    sys.stdout = nullfile
+    sys.stderr = nullfile
+
+
 ## image for tray icon 
 image = PIL.Image.open("./img/icon.png")
 
