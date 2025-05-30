@@ -172,4 +172,4 @@ def plot(aws_src="./COR_AWS.dat", location = "N/A"):
 
 
     fig.update_layout(title_text="AWS " + location + ": " + df['TIMESTAMP'].iloc[-1] + " UTC-3")
-    fig.write_html("AWS.html")
+    fig.write_html("./AWS.html")
