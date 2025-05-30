@@ -4,3 +4,4 @@ path:
 site: "COR"
 instrum: "AWS"
 file_name: "COR_AWS.dat"
+plot: True

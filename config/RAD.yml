@@ -20,3 +20,4 @@ site: "COR"
 instrum: "PIRA-UVA-UVB"
 
 file_name: "COR_AWS.dat" #name of src file e.g: "COR_AWS.dat"
+plot: False
