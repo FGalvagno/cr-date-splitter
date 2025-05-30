@@ -8,3 +8,4 @@ pytz
 PyYAML
 six
 tzdata
+plotly
