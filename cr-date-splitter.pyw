@@ -2,10 +2,11 @@ import os
 import time
 from datetime import datetime
 import glob
-
 import pystray
 import PIL.Image
 import yaml
+
+
 
 from splitter import Splitter
 
@@ -56,7 +57,8 @@ def main():
             cfg["path"]["dest"], 
             cfg["site"],
             cfg["instrum"], 
-            cfg["file_name"])
+            cfg["file_name"],
+            cfg["plot"],)
         )
 
     ## check for changes in files with polling.
