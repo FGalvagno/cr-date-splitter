@@ -1,6 +1,7 @@
 import pandas as pd
 import os
 from datetime import datetime, timedelta, date
+from plotAWS import plot
 
 class Splitter:
     """
@@ -23,7 +24,7 @@ class Splitter:
         instrum (str): The instrument associated with the data.
         filename (str): The name of the input file.
     """
-    def __init__(self, src_loc, dest_loc, site, instrum, filename):
+    def __init__(self, src_loc, dest_loc, site, instrum, filename, plot):
         self._cached_stamp = 0
         self.src_loc = src_loc
         self.dest_loc = dest_loc
@@ -32,6 +33,7 @@ class Splitter:
         self.site = site
         self.instrum = instrum
         self.filename = filename
+        self.plot = plot
 
 
     def has_changed(self):
@@ -139,3 +141,9 @@ class Splitter:
                 print(self.hd)
             print(self.df)
             self.df.to_csv(file_path, index=False, mode = 'a', header=False)
+
+        if self.plot:
+            try:
+                plot(file_path, self.site)
+            except Exception as e:
+                print(f"Error plotting data for {self.site}: {e}")
